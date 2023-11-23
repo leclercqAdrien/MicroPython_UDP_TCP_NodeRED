@@ -6,9 +6,9 @@ import utime
 # Définir les paramètres du réseau
 tcp_port = 1882
 udp_port = 1881
-server_ip = '192.168.41.41'
-wifi_ssid = 'electroProjectWifi'
-wifi_password = 'M13#MRSE'
+server_ip = '192.168.2.110'
+wifi_ssid = 'WiFi-2.4-1235'
+wifi_password = '0AE81F9309'
 
 # Configurer la LED sur la broche GPIO 2
 led_pin = 2
@@ -42,6 +42,7 @@ def send_tcp_data(data):
     try:
         s = socket.socket()
         addr = socket.getaddrinfo(server_ip, tcp_port)[0][-1]
+        print(addr)
         s.connect(addr)
         s.sendall(str(data).encode())
         s.close()
